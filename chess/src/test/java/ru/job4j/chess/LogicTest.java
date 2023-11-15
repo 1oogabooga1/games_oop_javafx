@@ -30,7 +30,6 @@ public class LogicTest {
         Logic log = new Logic();
         log.add(new BishopBlack(Cell.C1));
         log.add(new KingBlack(Cell.D2));
-        Cell[] steps = new Cell[] {Cell.A1, Cell.D2};
         Assert.assertThrows(OccupiedCellException.class, () -> log.move(Cell.C1, Cell.D2));
     }
 
