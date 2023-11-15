@@ -26,11 +26,15 @@ public class LogicTest {
     }
 
     @Test
-    void whenNotFree() {
+    void whenNotFree() throws OccupiedCellException {
         Logic log = new Logic();
         log.add(new BishopBlack(Cell.C1));
         log.add(new KingBlack(Cell.D2));
-        Assert.assertThrows(OccupiedCellException.class, () -> log.move(Cell.C1, Cell.D2));
+        OccupiedCellException exception = assertThrows(OccupiedCellException.class,
+                () -> {
+            log.move(Cell.C1, Cell.D2);
+                });
+        assertThat(exception.getMessage()).isEqualTo("Клетка занята");
     }
 
     @Test

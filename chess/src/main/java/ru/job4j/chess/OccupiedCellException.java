@@ -1,6 +1,7 @@
 package ru.job4j.chess;
 
 public class OccupiedCellException extends Exception {
-    public OccupiedCellException(String exception) {
+    public OccupiedCellException(String message) {
+        super(message);
     }
 }
