@@ -11,6 +11,7 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.Assert;
+import ru.job4j.chess.firuges.black.KingBlack;
 
 public class LogicTest {
 
@@ -28,6 +29,7 @@ public class LogicTest {
     void whenNotFree() {
         Logic log = new Logic();
         log.add(new BishopBlack(Cell.C1));
+        log.add(new KingBlack(Cell.D2));
         Cell[] steps = new Cell[] {Cell.A1, Cell.D2};
         Assert.assertThrows(OccupiedCellException.class, () -> log.move(Cell.C1, Cell.D2));
     }
